@@ -108,11 +108,16 @@ function createVisual(t,sp,sv,win) {
 function theGame(h1,h2){
     "use strict";
     let winner;
+    let h1pop;
+    let h2pop;
     for (let i=0;i<18;i++){
+
         if ((h1.cards[h1.cards.length-1].m!=trump)&&(h1.cards[h2.cards.length-1].m!=trump)){
-            if ((h1.cards.pop().d)>(h2.cards.pop().d)){
+            h1pop=h1.cards.pop().d;
+            h2pop=h2.cards.pop().d;
+            if (h1pop>h2pop){
                 h1.score++;
-            }else{
+            }else if (h1pop<h2pop){
                 h2.score++;
             };
         }else if ((h1.cards[h1.cards.length-1].m==trump)&&(h1.cards[h2.cards.length-1].m!=trump)){
@@ -120,9 +125,11 @@ function theGame(h1,h2){
         }else if ((h1.cards[h1.cards.length-1].m!=trump)&&(h1.cards[h2.cards.length-1].m==trump)){
             h2.score++;
         }else if ((h1.cards[h1.cards.length-1].m==trump)&&(h1.cards[h2.cards.length-1].m==trump)){
-            if ((h1.cards.pop().d)>(h2.cards.pop().d)){
+            h1pop=h1.cards.pop().d;
+            h2pop=h2.cards.pop().d;
+            if (h1pop>h2pop){
                 h1.score++;
-            }else{
+            }else if (h1pop<h2pop){
                 h2.score++;
             };
         };
